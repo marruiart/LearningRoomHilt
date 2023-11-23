@@ -1,8 +1,11 @@
 package com.marina.ruiz.learningroom.data.network
 
 import com.marina.ruiz.learningroom.data.network.model.PokemonApiModel
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PokemonNetworkRepository(private val service: PokemonService) {
+@Singleton
+class PokemonNetworkRepository @Inject constructor(private val service: PokemonService) {
 
     suspend fun getAll(): List<PokemonApiModel> {
         val simpleList = service.api.getAll()

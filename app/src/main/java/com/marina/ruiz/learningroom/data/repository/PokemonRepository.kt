@@ -8,8 +8,11 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.withContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PokemonRepository(
+@Singleton
+class PokemonRepository @Inject constructor(
     // Dependency injection
     private val localRepository: PokemonLocalRepository,
     private val networkRepository: PokemonNetworkRepository

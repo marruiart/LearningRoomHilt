@@ -2,8 +2,11 @@ package com.marina.ruiz.learningroom.data.local
 
 import androidx.annotation.WorkerThread
 import kotlinx.coroutines.flow.Flow
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class PokemonLocalRepository(private val pokemonDao: PokemonDao) {
+@Singleton
+class PokemonLocalRepository @Inject constructor(private val pokemonDao: PokemonDao) {
 
     val allPokemon: Flow<List<PokemonEntity>> = pokemonDao.getAllPokemon()
 

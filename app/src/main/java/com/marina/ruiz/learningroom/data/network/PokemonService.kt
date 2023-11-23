@@ -6,6 +6,8 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import javax.inject.Inject
+import javax.inject.Singleton
 
 interface PokemonApi {
     @GET("pokemon")
@@ -18,7 +20,8 @@ interface PokemonApi {
     suspend fun getDetail(@Path("id") id: Int): PokemonDetailResponse
 }
 
-class PokemonService() {
+@Singleton // provide this service as a singleton
+class PokemonService @Inject constructor() {
     // Instantiate retrofit
     private val retrofit = Retrofit.Builder()
         .baseUrl("https://pokeapi.co/api/v2/")
