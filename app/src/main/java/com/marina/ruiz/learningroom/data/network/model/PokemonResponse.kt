@@ -29,7 +29,7 @@ data class PokemonDetailResponse(
             height,
             sprites.frontDefault,
             types[0].type.name,
-            types[1].type.name
+            if (types.size == 2) types[1].type.name else null
         )
     }
 }
